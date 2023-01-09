@@ -34,15 +34,16 @@ const LEFTLEG=(
     
     </div>
 )
-function HangmanDrawing() {
+
+const BODY_PARTS = [HEAD, BODY, RIGHTARM, LEFTARM, RIGHTLEG, LEFTLEG]
+type HangmanDrawingProps = {
+    numberOfGuesses : number
+}
+
+function HangmanDrawing({numberOfGuesses}: HangmanDrawingProps) {
   return (
     <div className='relative mt-4 '>
-        {HEAD}
-        {BODY}
-        {RIGHTARM}
-        {LEFTARM}
-        {RIGHTLEG}
-        {LEFTLEG}
+       {BODY_PARTS.slice(0, numberOfGuesses)}
         <div className='bg-black h-[50px] w-[10px] absolute top-0 right-0 '></div>
         <div className='bg-black h-[10px] w-[200px] ml-[120px] '></div>
         <div className='bg-black h-[400px] w-[10px] ml-[120px] '></div>
