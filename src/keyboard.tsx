@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 const KEYS = [
   "a",
   "b",
@@ -26,13 +26,13 @@ const KEYS = [
   "x",
   "y",
   "z",
-]
+];
 type KeyboardProps = {
-  disabled?: boolean
-  activeLetters: string[]
-  inactiveLetters: string[]
-  addGuessedLetter: (letter: string) => void
-}
+  disabled?: boolean;
+  activeLetters: string[];
+  inactiveLetters: string[];
+  addGuessedLetter: (letter: string) => void;
+};
 
 export function Keyboard({
   activeLetters,
@@ -41,19 +41,26 @@ export function Keyboard({
   disabled = false,
 }: KeyboardProps) {
   return (
-    <div className='mt-4'
-    style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(75px, 1fr))",
-      gap: ".5rem",
-    }}>
-      {KEYS.map(key=> {
-        return(
-          <button className='border-2  border-black p-2 uppercase font-bold text-2xl shadow-lg shadow-gray-400 font-mono hover:bg-[#80d4ff] ' key={key}>{key}</button>
-        )
+    <div
+      className="mt-4 "
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(75px, 1fr))",
+        gap: ".5rem",
+      }}
+    >
+      {KEYS.map((key) => {
+        return (
+          <button
+            className="border-2  border-black p-2 uppercase font-bold text-2xl shadow-lg shadow-gray-600 font-mono hover:bg-[#80d4ff] "
+            key={key}
+          >
+            {key}
+          </button>
+        );
       })}
     </div>
-  )
+  );
 }
 
-export default Keyboard
+export default Keyboard;
