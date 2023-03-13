@@ -1,4 +1,3 @@
-import React from "react";
 const KEYS = [
   "a",
   "b",
@@ -40,6 +39,12 @@ export function Keyboard({
   addGuessedLetter,
   disabled = false,
 }: KeyboardProps) {
+  const handleClick = (letter: string) => {
+    if (!disabled) {
+      addGuessedLetter(letter);
+    }
+  };
+
   return (
     <div
       className="mt-4 "
@@ -50,10 +55,17 @@ export function Keyboard({
       }}
     >
       {KEYS.map((key) => {
+        const isInactive = inactiveLetters.includes(key);
+        const buttonClass = `border-2 rounded-lg p-2 uppercase font-bold text-2xl shadow-lg font-mono ${
+          isInactive ? "bg-red-500 text-white" : "bg-gray-300 text-black"
+        }`;
+
         return (
           <button
-            className="border-2  border-black p-2 uppercase font-bold text-2xl shadow-lg shadow-gray-600 font-mono hover:bg-[#80d4ff] "
             key={key}
+            className={buttonClass}
+            onClick={() => handleClick(key)}
+            disabled={disabled || isInactive}
           >
             {key}
           </button>
